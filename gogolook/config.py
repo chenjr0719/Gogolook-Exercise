@@ -2,7 +2,7 @@ from pydantic import BaseSettings, validator
 
 
 class Settings(BaseSettings):
-    DATABASE_URI: str
+    DATABASE_URI: str = "sqlite:///:memory:"
     LOG_LEVEL: str = "info"
 
     @validator("LOG_LEVEL", allow_reuse=True)

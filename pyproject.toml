@@ -2,7 +2,7 @@
 profile = "black"
 
 [tool.pytest.ini_options]
-addopts = "--durations=0 --html=test_reports/report.html --self-contained-html --cov=gogolook --cov-config .coveragerc --cov-report html"
+addopts = "--durations=0 --html=test_reports/report.html --self-contained-html --cov=gogolook --cov-report html"
 
 [tool.coverage.run]
 branch = true

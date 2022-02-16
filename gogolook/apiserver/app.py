@@ -1,8 +1,8 @@
-from turtle import rt
 from flask import Flask
+
+from gogolook.apiserver.task import TaskAPI
 from gogolook.config import Settings
 from gogolook.db import get_session
-from gogolook.apiserver.task import TaskAPI
 
 
 def get_app():

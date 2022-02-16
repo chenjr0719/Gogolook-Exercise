@@ -1,8 +1,9 @@
 from flask import Blueprint
 from sqlalchemy.orm.session import Session
+
 from gogolook.config import Settings
-from gogolook.services import TaskCRUDService
 from gogolook.models import Task
+from gogolook.services import TaskCRUDService
 
 
 class TaskAPI(Blueprint):
