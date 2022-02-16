@@ -1,0 +1,27 @@
+[tool.isort]
+profile = "black"
+
+[tool.pytest.ini_options]
+addopts = "--durations=0 --html=test_reports/report.html --self-contained-html --cov=gogolook --cov-config .coveragerc --cov-report html"
+
+[tool.coverage.run]
+branch = true
+source = ["gogolook"]
+omit = [
+    "gogolook/db/migrations/*"
+]
+
+[tool.coverage.html]
+directory = "test_reports/coverage"
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "def __repr__",
+    "if self.debug:",
+    "if settings.DEBUG",
+    "raise AssertionError",
+    "raise NotImplementedError",
+    "if 0:",
+    "if __name__ == .__main__.:"
+]

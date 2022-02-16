@@ -1,11 +1,14 @@
 from setuptools import setup, find_packages
 
 install_requires = [
+    "alembic==1.7.6",
     "flask==1.1.0",
+    "orjson==3.6.7",
     "pydantic==1.9.0",
     "sqlalchemy==1.4.31",
+    "structlog==21.5.0",
 ]
-dev_requires = ["black==22.1.0", "isort==5.10.1"]
+dev_requires = ["autoflake==1.4", "black==22.1.0", "isort==5.10.1"]
 test_requires = [
     "coverage==6.3.1",
     "pytest==7.0.1",
