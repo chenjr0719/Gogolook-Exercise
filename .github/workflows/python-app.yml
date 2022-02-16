@@ -29,4 +29,8 @@ jobs:
         pip install tox tox-gh-actions
     - name: Test with pytest
       run: |
-        tox
+        tox -- --cov-report xml
+    - uses: codecov/codecov-action@v2
+      with:
+        files: ./coverage.xml
+        env_vars: OS,PYTHON
