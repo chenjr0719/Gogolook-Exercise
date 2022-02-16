@@ -1,2 +1,3 @@
 # Gogolook-Exercise
-A Restful task list API
+
+A RESTful task list API
