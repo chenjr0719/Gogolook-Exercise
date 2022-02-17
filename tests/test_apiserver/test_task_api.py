@@ -52,13 +52,16 @@ def test_task_api_get(client, dummy_tasks):
     assert resp.status_code == 200
 
     resp = resp.json
-    assert isinstance(resp, dict)
-    assert "id" in resp
-    assert resp["id"] == dummy_tasks[0].id
-    assert "name" in resp
-    assert resp["name"] == dummy_tasks[0].name
-    assert "status" in resp
-    assert resp["status"] == 0
+    assert "result" in resp
+    assert isinstance(resp["result"], dict)
+
+    result = resp["result"]
+    assert "id" in result
+    assert result["id"] == dummy_tasks[0].id
+    assert "name" in result
+    assert result["name"] == dummy_tasks[0].name
+    assert "status" in result
+    assert result["status"] == 0
 
 
 def test_task_api_update(client, dummy_tasks):
@@ -67,13 +70,16 @@ def test_task_api_update(client, dummy_tasks):
     assert resp.status_code == 200
 
     resp = resp.json
-    assert isinstance(resp, dict)
-    assert "id" in resp
-    assert resp["id"] == dummy_tasks[0].id
-    assert "name" in resp
-    assert resp["name"] == json_body["name"]
-    assert "status" in resp
-    assert resp["status"] == json_body["status"]
+    assert "result" in resp
+    assert isinstance(resp["result"], dict)
+
+    result = resp["result"]
+    assert "id" in result
+    assert result["id"] == dummy_tasks[0].id
+    assert "name" in result
+    assert result["name"] == json_body["name"]
+    assert "status" in result
+    assert result["status"] == json_body["status"]
 
 
 def test_task_api_delete(client, dummy_tasks):
