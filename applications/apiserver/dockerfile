@@ -9,6 +9,7 @@ COPY setup.py .
 RUN pip install .[deploy]
 
 COPY gogolook ./gogolook
+COPY applications/apiserver/main.py .
 COPY applications/apiserver/apiserver.ini .
 
 ENTRYPOINT [ "uwsgi" ]

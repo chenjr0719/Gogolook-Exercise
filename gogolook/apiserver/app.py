@@ -44,6 +44,3 @@ def register_error_handlers(app):
 
 def liveness():  # noqa
     return ""
-
-
-app = get_app()  # noqa
