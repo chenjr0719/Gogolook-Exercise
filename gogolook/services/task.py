@@ -1,6 +1,6 @@
 from logging import Logger
 
-from pytest import Session
+from sqlalchemy.orm.session import Session
 
 from gogolook.models import Task, TaskSchema, TaskUpdateSchema
 from gogolook.services import CRUDService

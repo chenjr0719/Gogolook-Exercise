@@ -1,0 +1,16 @@
+FROM python:3.7
+
+RUN pip install --upgrade pip
+
+WORKDIR /app
+ENV PYTHONPATH "${PYTHONPATH}:/app"
+
+COPY setup.py .
+RUN pip install .[deploy]
+
+COPY gogolook ./gogolook
+COPY applications/apiserver/main.py .
+COPY applications/apiserver/apiserver.ini .
+
+ENTRYPOINT [ "uwsgi" ]
+CMD [ "apiserver.ini" ]

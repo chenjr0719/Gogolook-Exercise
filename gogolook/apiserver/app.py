@@ -4,6 +4,7 @@ from gogolook.apiserver.errors import BadRequest, NotFound, UnknownError
 from gogolook.apiserver.task import TaskAPI
 from gogolook.config import Settings
 from gogolook.db import get_session
+from gogolook.db.migrations import migrate
 from gogolook.logger import get_logger
 from gogolook.models import Base
 from gogolook.services import get_task_service
@@ -15,6 +16,9 @@ def get_app():  # noqa
     db_session = get_session(settings)
     logger = get_logger(settings=settings)
 
+    if settings.AUTO_MIGRATE:
+        migrate()
+
     Base.metadata.create_all(bind=db_session.get_bind())
 
     app = Flask(__name__)
@@ -24,6 +28,7 @@ def get_app():  # noqa
     app.register_blueprint(task_api, url_prefix="/tasks")
 
     register_error_handlers(app)
+    app.add_url_rule("/healthz", "liveness", liveness)
 
     return app
 
@@ -37,4 +42,5 @@ def register_error_handlers(app):
     app.register_error_handler(NotFound, err_resp)
 
 
-app = get_app()  # noqa
+def liveness():  # noqa
+    return ""

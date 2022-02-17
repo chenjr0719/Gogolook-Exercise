@@ -13,7 +13,7 @@ class TaskStatus(IntEnum):
 
 
 class Task(Base):
-    name = Column(String)
+    name = Column(String(length=100))
     status = Column(Enum(TaskStatus), default=TaskStatus.Incomplete)
 
 
