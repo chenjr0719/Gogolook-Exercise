@@ -1,15 +1,15 @@
 """empty message
 
-Revision ID: a70b0dc3f6c1
+Revision ID: 511f891831e6
 Revises: 
-Create Date: 2022-02-16 23:20:34.819430
+Create Date: 2022-02-17 04:10:27.352723
 
 """
 import sqlalchemy as sa
 from alembic import op
 
 # revision identifiers, used by Alembic.
-revision = "a70b0dc3f6c1"
+revision = "511f891831e6"
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -23,16 +23,16 @@ def upgrade():
         sa.Column(
             "created_at",
             sa.DateTime(timezone=True),
-            server_default=sa.text("(CURRENT_TIMESTAMP)"),
+            server_default=sa.text("now()"),
             nullable=False,
         ),
         sa.Column(
             "updated_at",
             sa.DateTime(timezone=True),
-            server_default=sa.text("(CURRENT_TIMESTAMP)"),
+            server_default=sa.text("now()"),
             nullable=False,
         ),
-        sa.Column("name", sa.String(), nullable=True),
+        sa.Column("name", sa.String(length=100), nullable=True),
         sa.Column(
             "status",
             sa.Enum("Incomplete", "Complete", name="taskstatus"),
