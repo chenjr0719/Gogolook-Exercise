@@ -83,7 +83,7 @@ class TaskAPI(Blueprint):
         if db_obj is None:
             raise NotFound()
 
-        return self.task_service.to_dict(db_obj)
+        return {"result": self.task_service.to_dict(db_obj)}
 
     def update(self, id: int):
 
@@ -112,7 +112,7 @@ class TaskAPI(Blueprint):
             self.logger.exception(e)
             raise UnknownError()
 
-        return self.task_service.to_dict(db_obj)
+        return {"result": self.task_service.to_dict(db_obj)}
 
     def delete(self, id: int):
 
