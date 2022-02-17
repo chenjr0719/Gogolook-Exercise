@@ -1,22 +1,6 @@
 import pytest
 
 from gogolook.apiserver.task.task import TaskAPI
-from gogolook.services.task import get_task_service
-
-
-@pytest.fixture()
-def mock_task_service(mock_db_session, mock_logger):
-
-    task_service = get_task_service(session=mock_db_session, logger=mock_logger)
-    return task_service
-
-
-@pytest.fixture()
-def dummy_tasks(mock_task_service):
-    tasks = [{"name": "sleep"}, {"name": "eat"}, {"name": "買晚餐"}, {"name": "買早餐"}]
-    tasks = [mock_task_service.create(obj=task) for task in tasks]
-
-    return tasks
 
 
 @pytest.fixture(autouse=True)
