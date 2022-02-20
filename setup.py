@@ -4,6 +4,7 @@ install_requires = [
     "alembic==1.7.6",
     "cryptography==36.0.1",
     "flask==1.1.0",
+    "itsdangerous==2.0.1",
     "orjson==3.6.7",
     "pydantic==1.9.0",
     "PyMySQL==1.0.2",
